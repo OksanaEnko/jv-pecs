@@ -1,16 +1,19 @@
 package core.mate.academy.service;
+
 import core.mate.academy.model.Bulldozer;
-import core.mate.academy.model.Truck;
 import core.mate.academy.model.Excavator;
+import core.mate.academy.model.Machine;
+import core.mate.academy.model.Truck;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public interface MachineProducer {
 public interface MachineProducer<T extends Machine> {
     List<T> get();
 }
 
-public class BulldozerProducer implements MachineProducer<Bulldozer> {
+
+class BulldozerProducer implements MachineProducer<Bulldozer> {
     @Override
     public List<Bulldozer> get() {
         List<Bulldozer> bulldozers = new ArrayList<>();
@@ -21,7 +24,7 @@ public class BulldozerProducer implements MachineProducer<Bulldozer> {
     }
 }
 
-public class ExcavatorProducer implements MachineProducer<Excavator> {
+class ExcavatorProducer implements MachineProducer<Excavator> {
     @Override
     public List<Excavator> get() {
         List<Excavator> excavators = new ArrayList<>();
@@ -32,7 +35,7 @@ public class ExcavatorProducer implements MachineProducer<Excavator> {
     }
 }
 
-public class TruckProducer implements MachineProducer<Truck> {
+class TruckProducer implements MachineProducer<Truck> {
     @Override
     public List<Truck> get() {
         List<Truck> trucks = new ArrayList<>();
@@ -41,5 +44,4 @@ public class TruckProducer implements MachineProducer<Truck> {
         trucks.add(new Truck());
         return trucks;
     }
-}
 }
